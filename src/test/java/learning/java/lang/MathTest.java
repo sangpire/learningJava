@@ -5,9 +5,6 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by sangpire on 2016. 5. 13..
- */
 public class MathTest {
 
     @Test
