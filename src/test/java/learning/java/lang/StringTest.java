@@ -18,4 +18,9 @@ public class StringTest {
         assertThat("ABCDEF".substring(4), is("EF"));
     }
 
+    @Test
+    public void testSplit() {
+        assertThat("AB-CD".split("-"), is(new String[] {"AB", "CD"}));
+    }
+
 }
