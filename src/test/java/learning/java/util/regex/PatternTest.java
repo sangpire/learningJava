@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 public class PatternTest {
 
     public static final String REGEX_1 = "([PD]{1})-(\\d+)";
-    public static final String REGEX_2 = "([0-9.]*)\\/([0-9.]+)";
+    public static final String REGEX_2 = "(\\d+\\.?\\d?)\\/(\\d+\\.?\\d?)";
 
     @Test
     public void testUseage() {
@@ -59,5 +59,12 @@ public class PatternTest {
         assertThat(matcher.matches(), is(true));
         assertThat(matcher.group(1), is("3"));
         assertThat(matcher.group(2), is("5"));
+    }
+
+    @Test
+    public void testMatcherForRegex2_4() {
+        Pattern pattern = Pattern.compile(REGEX_2);
+        Matcher matcher = pattern.matcher("3.4.5/5");
+        assertThat(matcher.matches(), is(false));
     }
 }
