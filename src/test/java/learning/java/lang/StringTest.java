@@ -23,4 +23,10 @@ public class StringTest {
         assertThat("AB-CD".split("-"), is(new String[] {"AB", "CD"}));
     }
 
+    @Test
+    public void testReplaceAll() {
+        assertThat("AB12CD".replaceAll("\\d", "."), is("AB..CD"));
+        assertThat("AB\nCD".replaceAll("\\n", "<br/>"), is("AB<br/>CD"));
+    }
+
 }
