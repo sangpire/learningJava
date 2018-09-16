@@ -1,11 +1,11 @@
 package learning.java.time;
 
-import org.junit.Test;
-
 import java.time.Period;
 
-import static java.time.Period.ofDays;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Created by sangpire on 2016. 10. 18..
@@ -16,6 +16,6 @@ public class PeriodTest {
     public void name() throws Exception {
         Period p = Period.ofDays(360);
         p = p.normalized();
-        assertEquals(0, p.toTotalMonths());
+        assertThat(0, is(p.toTotalMonths()));
     }
 }

@@ -1,13 +1,11 @@
 package learning.org.apache.commons.beanutils;
 
 import org.apache.commons.beanutils.BeanMap;
-import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BeanMapTest {
 
@@ -42,14 +40,14 @@ public class BeanMapTest {
         Person sangpil = new Person("BYUN Sangpil", 18);
         BeanMap sangpilBeanMap = new BeanMap(sangpil);
 
-        assertThat(sangpilBeanMap, is(instanceOf(Map.class)));
+        assertTrue(sangpilBeanMap instanceof Map);
 
         Map<String, Object> expectedInMap = new HashMap<>();
         expectedInMap.put("age", 18);
         expectedInMap.put("name", "BYUN Sangpil");
 
-        assertThat(sangpilBeanMap, hasEntry("age", 18));
-        assertThat(sangpilBeanMap, hasEntry("name", "BYUN Sangpil"));
+        assertEquals(18, sangpilBeanMap.get("age"));
+        assertEquals("BYUN Sangpil", sangpilBeanMap.get("name"));
     }
 
 }
